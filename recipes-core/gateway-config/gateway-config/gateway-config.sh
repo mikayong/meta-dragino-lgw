@@ -205,20 +205,20 @@ do_prompt_concentrator_reset_pin() {
 }
 
 do_set_concentrator_reset_pin() {
-    sed -i "s/^\(CONCENTRATOR_RESET_PIN=\).*$/\1$1/" /etc/default/lora-packet-forwarder
+    sed -i "s/^\(CONCENTRATOR_RESET_PIN=\).*$/\1$1/" /etc/default/lora-gateway
 }
 
 do_copy_global_conf() {
     # $1 concentrator type
     # $2 channel-plan
     RET=0
-    if [ -f /etc/lora-packet-forwarder/global_conf.json ]; then
+    if [ -f /etc/lora-gateway/global_conf.json ]; then
         dialog --yesno "A packet-forwarder configuration file already exists. Do you want to overwrite it?" 6 60
         RET=$?
     fi
 
     if [ $RET -eq 0 ]; then
-        cp /etc/lora-packet-forwarder/$1/global_conf.$2.json /etc/lora-packet-forwarder/global_conf.json
+        cp /etc/lora-gateway/$1/global_conf.$2.json /etc/gateway/global_conf.json
         RET=$?
         if [ $RET -eq 0 ]; then
             dialog --title "Channel-plan configuration" --msgbox "Channel-plan configuration has been copied." 5 60
@@ -246,7 +246,7 @@ do_copy_loraserver_config() {
 }
 
 do_set_gateway_id() {
-    /opt/lora-packet-forwarder/update_gwid.sh /etc/lora-packet-forwarder/global_conf.json
+    /opt/lora-gateway/update_gwid.sh /etc/lora-gateway/local_conf.json
     RET=$?
     if [ $RET -eq 0 ]; then
         dialog --title "Set Gateway ID" --msgbox "The Gateway ID has been set." 5 60
@@ -255,7 +255,7 @@ do_set_gateway_id() {
 }
 
 do_restart_packet_forwarder() {
-    monit restart lora-packet-forwarder
+    monit restart lora-gateway
     RET=$?
     if [ $RET -eq 0 ]; then
         dialog --title "Restart packet-forwarder" --msgbox "The packet-forwarder has been restarted." 5 60

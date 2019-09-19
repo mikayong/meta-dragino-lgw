@@ -7,6 +7,7 @@ SRC_URI = " \
     https://artifacts.loraserver.io/downloads/loraserver/loraserver_${PV}_linux_armv5.tar.gz \
     file://loraserver.init \
     file://loraserver.monit \
+    file://loraserver.toml \
     file://config/au915_0.toml \
     file://config/au915_1.toml \
     file://config/au915_2.toml \
@@ -45,6 +46,7 @@ do_install() {
     install -d ${D}${CONF_DIR}
     install -d ${D}${CONF_DIR}/config
 
+    install -m 0640 ${WORKDIR}/loraserver.toml ${D}${CONF_DIR}
     install -m 0640 ${WORKDIR}/config/* ${D}${CONF_DIR}/config
 
     install -d ${D}${sysconfdir}/init.d

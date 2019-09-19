@@ -51,8 +51,22 @@ do_install() {
 
     install -d ${D}${LORA_CONF_DIR}
     install -d ${D}${LORA_CONF_DIR}/dragino
-    install -m 0644 ${S}/lora_pkt_fwd/cfg/*.json ${D}${LORA_CONF_DIR}/dragino
+    install -d ${D}${LORA_CONF_DIR}/ic880a
+    install -d ${D}${LORA_CONF_DIR}/ic980a
+    install -d ${D}${LORA_CONF_DIR}/loraga_port
+    install -d ${D}${LORA_CONF_DIR}/rak831
+    install -d ${D}${LORA_CONF_DIR}/rhf0m301
+    install -d ${D}${LORA_CONF_DIR}/pislora
+
     install -m 0644 ${S}/lora_pkt_fwd/*.json ${D}${LORA_CONF_DIR}
+
+    install -m 0644 ${S}/lora_pkt_fwd/dragino/*.json ${D}${LORA_CONF_DIR}/dragino
+    install -m 0644 ${s}/lora_pkt_fwd/ic880a/*.json ${D}${LORA_CONF_DIR}/ic880a
+    install -m 0644 ${s}/lora_pkt_fwd/ic980a/*.json ${D}${LORA_CONF_DIR}/ic980a
+    install -m 0644 ${s}/lora_pkt_fwd/lorago_port/*.json ${D}${LORA_CONF_DIR}/lorago_port
+    install -m 0644 ${s}/lora_pkt_fwd/rak831/*.json ${D}${LORA_CONF_DIR}/rak831
+    install -m 0644 ${s}/lora_pkt_fwd/rhf0m301/*.json ${D}${LORA_CONF_DIR}/rhf0m301
+    install -m 0644 ${s}/lora_pkt_fwd/pislora/*.json ${D}${LORA_CONF_DIR}/pislora
 }
 
 FILES_${PN} += "${LORA_DIR}"
