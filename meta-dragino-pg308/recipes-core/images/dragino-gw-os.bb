@@ -1,6 +1,6 @@
 DESCRIPTION = "Image including the LoRa packet-forwarder and all LoRa Server components installed."
 
-require recipes-core/images/dragino-lgw-os-base.bb
+require recipes-core/images/gwos-base.bb
 
 IMAGE_INSTALL += " \
 	bash \

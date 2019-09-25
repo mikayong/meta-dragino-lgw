@@ -14,6 +14,7 @@ BBLAYERS ?= " \
   ##OEROOT##/metas/meta-openembedded/meta-oe \
   ##OEROOT##/metas/meta-openembedded/meta-python \
   ##OEROOT##/metas/mender/meta-mender-core \
-  ##OEROOT##/metas/meta-dragino-lgw \
+  ##OEROOT##/metas/meta-dragino-lgw/meta-dragino-basic \
+  ##OEROOT##/metas/meta-dragino-lgw/meta-dragino-pg308 \
   ##OEROOT##/metas/meta-raspberrypi \
   "

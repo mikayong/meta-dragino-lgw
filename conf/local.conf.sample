@@ -1,5 +1,5 @@
 # Leave this to 'dragino-lgw-os"
-DISTRO = "dragino-lgw-os"
+DISTRO = "dragino-gw-os"
 
 # Select the target machine.
 #
