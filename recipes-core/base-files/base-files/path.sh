@@ -1,3 +1,3 @@
 #!/bin/sh
 
-export PATH=/sbin:/usr/bin:$PATH
+export PATH=/sbin:/usr/bin:/opt:$PATH

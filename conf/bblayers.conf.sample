@@ -8,12 +8,12 @@ BBFILES ?= ""
 VENDOR = "dragino"
 
 BBLAYERS ?= " \
-  ##OEROOT##/meta \
-  ##OEROOT##/meta-openembedded/meta-networking \
-  ##OEROOT##/meta-openembedded/meta-filesystems \
-  ##OEROOT##/meta-openembedded/meta-oe \
-  ##OEROOT##/meta-openembedded/meta-python \
-  ##OEROOT##/meta-mender-core \
-  ##OEROOT##/meta-dragino-lgw \
-  ##OEROOT##/meta-raspberrypi \
+  ##OEROOT##/metas/openembedded-core/meta \
+  ##OEROOT##/metas/meta-openembedded/meta-networking \
+  ##OEROOT##/metas/meta-openembedded/meta-filesystems \
+  ##OEROOT##/metas/meta-openembedded/meta-oe \
+  ##OEROOT##/metas/meta-openembedded/meta-python \
+  ##OEROOT##/metas/mender/meta-mender-core \
+  ##OEROOT##/metas/meta-dragino-lgw \
+  ##OEROOT##/metas/meta-raspberrypi \
   "

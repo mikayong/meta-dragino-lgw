@@ -2,6 +2,13 @@
 
 mkdir -p /var/lib/firstbootinit
 
+do_update_gwid() {
+    if [ ! -f /var/lib/firstbootinit/gwid_updated_by_firstboot ]; then
+        /opt/lora-gateway/update_gwid.sh /etc/lora-gateway/local_conf.json
+        touch /var/lib/firstbootinit/gwid_updated_by_firstboot
+    fi
+}
+
 do_init_postgresql() {
     if [ ! -f /var/lib/firstbootinit/postgresql_initdb ]; then
         /usr/bin/postgresql-setup initdb
@@ -38,6 +45,7 @@ do_init_postgresql_dbs() {
 }
 
 
+do_update_gwid
 do_init_postgresql
 do_init_postgresql_dbs
 
