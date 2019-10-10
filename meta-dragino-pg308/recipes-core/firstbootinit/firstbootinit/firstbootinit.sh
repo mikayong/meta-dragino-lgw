@@ -14,7 +14,7 @@ do_init_postgresql() {
         /usr/bin/postgresql-setup initdb
 
         # fix to start postgresql
-        echo "10.5" > /var/lib/postgresql/data/PG_VERSION
+        echo "11" > /var/lib/postgresql/data/PG_VERSION
 
         # make sure we can connect using localhost
         sed -i 's/\(host.*all.*all.*\)ident/\1md5/g' /var/lib/postgresql/data/pg_hba.conf
